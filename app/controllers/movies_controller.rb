@@ -12,6 +12,8 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
+    @movies = Movie.all
+
     redirect = false
     
     logger.debug(session.inspect)
@@ -53,7 +55,6 @@ class MoviesController < ApplicationController
     else
       @movie = Movie.all
     end
-    # @movies = Movie.all
     if !@ratings
       @ratings = Hash.new
     end
